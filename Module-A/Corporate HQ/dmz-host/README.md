@@ -1,7 +1,7 @@
 #
 <p align="center">
   <a href="">
-    <img src="../../../img/Module-A/Corporate HQ/dmz-host/web_server.png" alt="APACHE2" width="160" height="160">
+    <img src="../../../img/Module-A/Corporate HQ/dmz-host/web_server.png" alt="DMZ-HOST" width="160" height="160">
   </a>
   <h1 align="center">DMZ-HOST</h1>
 </p>
