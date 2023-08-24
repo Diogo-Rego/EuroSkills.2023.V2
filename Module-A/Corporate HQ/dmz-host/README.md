@@ -41,7 +41,7 @@
 
 <p align="center">
   <a>
-    <img src="../../../img/Module-A/general_configuration/hostname.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="HOSTNAME" width="160" height="160">
+    <img href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" src="../../../img/Module-A/general_configuration/hostname.png" alt="HOSTNAME" width="160" height="160">
   </a>
   <h1 align="center">Set the hostname</h1>
 </p>
