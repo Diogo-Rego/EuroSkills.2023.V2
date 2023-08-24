@@ -40,8 +40,8 @@
 ## General Configuration
 
 <p align="center">
-  <a>
-    <img href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" src="../../../img/Module-A/general_configuration/hostname.png" alt="HOSTNAME" width="160" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/general_configuration/hostname.png" alt="HOSTNAME" width="160" height="160">
   </a>
   <h1 align="center">Set the hostname</h1>
 </p>
@@ -70,8 +70,8 @@ hostname
 
 #
 <p align="center">
-  <a>
-    <img src="../../../img/Module-A/general_configuration/wired-network.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="NETWORK INTERFACES - IPV4" width="160" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/general_configuration/wired-network.png" alt="NETWORK INTERFACES - IPV4" width="160" height="160">
   </a>
   <h1 align="center">Configure the Network Interface - IPV4</h1>
 </p>
@@ -132,8 +132,8 @@ sudo systemctl restart networking
 
 #
 <p align="center">
-  <a>
-    <img src="../../../img/Module-A/general_configuration/time-zone.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="TIMEZONE" width="160" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/general_configuration/time-zone.png" alt="TIMEZONE" width="160" height="160">
   </a>
   <h1 align="center">Configure the time zone</h1>
 </p>
@@ -172,8 +172,8 @@ timedatectl
 
 #
 <p align="center">
-  <a>
-    <img src="../../../img/Module-A/general_configuration/keyboard_layouts.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="Keyboard Layout" width="160" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/general_configuration/keyboard_layouts.png" alt="Keyboard Layout" width="160" height="160">
   </a>
   <h1 align="center">Configure the Keyboard Layout</h1>
 </p>
@@ -202,8 +202,8 @@ sudo reboot
 
 #
 <p align="center">
-  <a>
-    <img src="../../../img/Module-A/general_configuration/ssh.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="SSH" width="160" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/general_configuration/ssh.png" alt="SSH" width="160" height="160">
   </a>
   <h1 align="center">Install and configure the SSH server</h1>
 </p>
@@ -259,8 +259,8 @@ sudo service sshd restart
 ## Preinstalled Resources
 
 <p align="center">
-  <a>
-    <img src="../../../img/Module-A/general_configuration/install.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="Keyboard Layout" width="160" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/general_configuration/install.png" alt="Keyboard Layout" width="160" height="160">
   </a>
   <h1 align="center">Install the test tools</h1>
 </p>
@@ -277,8 +277,8 @@ sudo apt install -y smbclient curl lynx dnsutils ldap-utils ftp lftp wget ssh nf
 
 #
 <p align="center">
-  <a href="">
-    <img src="../../../img/Module-A/Corporate HQ/dmz-host/bind9.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="BIND9" width="160" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/Corporate HQ/dmz-host/bind9.png" alt="BIND9" width="160" height="160">
   </a>
   <h1 align="center">Install the BIND9</h1>
 </p>
@@ -415,8 +415,8 @@ dig example.com @127.0.0.1
 
 #
 <p align="center">
-  <a href="">
-    <img src="../../../img/Module-A/Corporate HQ/dmz-host/ddns_bind9.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="Dynamic DNS" width="160" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/Corporate HQ/dmz-host/ddns_bind9.png" alt="Dynamic DNS" width="160" height="160">
   </a>
   <h1 align="center">Configure the Dynamic DNS - BIND9</h1>
 </p>
@@ -510,8 +510,8 @@ sudo systemctl status bind9
 ## Install Web server
 
 <p align="center">
-  <a href="">
-    <img src="../../../img/Module-A/Corporate HQ/dmz-host/apache2.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="APACHE2" width="260" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/Corporate HQ/dmz-host/apache2.png" alt="APACHE2" width="260" height="160">
   </a>
   <h1 align="center">Install the APACHE2</h1>
 </p>
@@ -580,8 +580,8 @@ sudo service apache2 restart
 
 #
 <p align="center">
-  <a href="">
-    <img src="../../../img/Module-A/Corporate HQ/dmz-host/ssl.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="APACHE2 + SSL" width="160" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/Corporate HQ/dmz-host/ssl.png" alt="APACHE2 + SSL" width="160" height="160">
   </a>
   <h1 align="center">Configure the SSL - APACHE2</h1>
 </p>
@@ -670,8 +670,8 @@ sudo service apache2 restart
 ## Install Email server
 
 <p align="center">
-  <a href="">
-    <img src="../../../img/Module-A/Corporate HQ/dmz-host/postfix.png" href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host" alt="APACHE2 + SSL" width="250" height="160">
+  <a href="https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#dmz-host">
+    <img src="../../../img/Module-A/Corporate HQ/dmz-host/postfix.png" alt="APACHE2 + SSL" width="250" height="160">
   </a>
   <h1 align="center">Install the Postfix</h1>
 </p>
