@@ -1,47 +1,47 @@
 #
 <p align="center">
   <a href="">
-    <img src="../../../img/Module-A/web_server.png" alt="APACHE2" width="160" height="160">
+    <img src="../../../img/Module-A/Corporate HQ/dmz-host/web_server.png" alt="APACHE2" width="160" height="160">
   </a>
-  <h1 align="center">APACHE2</h1>
+  <h1 align="center">DMZ-HOST</h1>
 </p>
 
 ## Setup Guide
 
-- [X] General Configuration [ [test](https://www.google.com) ]
-  - [X] Set the hostname
-  - [X] Network configuration
-  - [X] Set the time zone
-  - [X] Set the keyboard layout
-  - [X] Install SSH server and allow root password access
-- [X] Preinstalled Resources
-  - [X] Install the test tools
-- [X] Install DNS server
-  - [X] Install BIND9
-  - [X] Create a Domain
-  - [X] Create a Zones
-    - [X] Configure forward records
-    - [X] Configure reverse records
-  - [X] Configure the Dynamic DNS
-    - [X] Create our key for DHCP Update
-- [X] Install Web server
-  - [X] Install APACHE2
-    - [X] Configure SSL
-    - [ ] Configure Client Certification Authentication
-- [X] Install Email server
-  - [X] Install Postfix
-    - [X] Configure SSL
-    - [X] Configure Mail Folder
-      - [X] Create Mail Folder for all Users
-  - [X] Install Dovecot
-    - [X] For imap
-    - [X] For imap
+- [X] General Configuration - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#general-configuration)
+  - [X] Set the hostname  - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#set-the-hostname)
+  - [X] Network configuration  - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#configure-the-network-interface---ipv4)
+  - [X] Set the time zone - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#configure-the-time-zone)
+  - [X] Set the keyboard layout - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#configure-the-keyboard-layout)
+  - [X] Install SSH server and allow root password access - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#install-and-configure-the-ssh-server)
+- [X] Preinstalled Resources - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#preinstalled-resources)
+  - [X] Install the test tools - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#install-the-test-tools)
+- [X] Install DNS server - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#install-dns-server)
+  - [X] Install BIND9 - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#install-the-bind9)
+  - [X] Create a Domain - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-2-configure-bind9)
+  - [X] Create a Zones - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-2-configure-bind9)
+    - [X] Configure forward records - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-2-configure-bind9)
+    - [X] Configure reverse records - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-2-configure-bind9)
+  - [X] Configure the Dynamic DNS - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#configure-the-dynamic-dns---bind9)
+    - [X] Create our key for DHCP Update - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-1-create-key-file)
+- [X] Install Web server - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#install-web-server)
+  - [X] Install APACHE2 - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#install-the-apache2)
+    - [X] Configure SSL - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#configure-the-ssl---apache2)
+    - [ ] Configure Client Certification Authentication - [Click Here]()
+- [X] Install Email server - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#install-email-server)
+  - [X] Install Postfix - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#install-the-postfix)
+    - [X] Configure SSL - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-2-configure-postfix)
+    - [X] Configure Mail Folder - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-2-configure-postfix)
+      - [X] Create Mail Folder for all Users - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-4-configure-mailboxes-and-users)
+  - [X] Install Dovecot - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-1-install-the-necessary-software)
+    - [X] For imap - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-3-configure-dovecot)
+    - [X] For pop3 - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/dmz-host#step-3-configure-dovecot)
 
 ## General Configuration
 
 <p align="center">
   <a>
-    <img src="../../../img/Module-A/general_configuration/hostname.png" alt="HOSTNAME" width="160" height="160">
+    <img src="../../../img/Module-A/general_configuration/hostname.png" href="" alt="HOSTNAME" width="160" height="160">
   </a>
   <h1 align="center">Set the hostname</h1>
 </p>
@@ -511,7 +511,7 @@ sudo systemctl status bind9
 
 <p align="center">
   <a href="">
-    <img src="../../../img/Module-A/Corporate HQ/dmz-host/apache2.png" alt="APACHE2" width="250" height="160">
+    <img src="../../../img/Module-A/Corporate HQ/dmz-host/apache2.png" alt="APACHE2" width="260" height="160">
   </a>
   <h1 align="center">Install the APACHE2</h1>
 </p>
