@@ -8,20 +8,20 @@
 
 ## Setup Guide
 
-- [X] General Configuration - [Click Here]()
-  - [X] Set the hostname  - [Click Here]()
-  - [X] Network configuration  - [Click Here]()
-  - [X] Set the time zone - [Click Here]()
-  - [X] Set the keyboard layout - [Click Here]()
-  - [X] Install SSH server and allow root password access - [Click Here]()
-- [X] Preinstalled Resources - [Click Here]()
-  - [X] Install the test tools - [Click Here]()
-- [X] Install a graphic environment - [Click Here]()
-  - [X] Install tasksel - [Click Here]()
-  - [X] Install xrdp - [Click Here]()
-- [ ] Install LDAP - [Click Here]()
+- [X] General Configuration - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#general-configuration)
+  - [X] Set the hostname  - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#set-the-hostname)
+  - [X] Network configuration  - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#configure-the-network-interface---ipv4)
+  - [X] Set the time zone - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#configure-the-time-zone)
+  - [X] Set the keyboard layout - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#configure-the-keyboard-layout)
+  - [X] Install SSH server and allow root password access - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#install-and-configure-the-ssh-server)
+- [X] Preinstalled Resources - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#preinstalled-resources)
+  - [X] Install the test tools - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#install-the-test-tools)
+- [X] Install a graphic environment - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#install-a-graphic-environment)
+  - [X] Install tasksel - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#install-a-desktop-environment)
+  - [X] Install xrdp - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#step-1-installing-desktop-environment)
+- [ ] Install LDAP - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#step-2-installing-xrdp-on-debian)
   - [ ] Configure LDAP authentication - [Click Here]()
-- [X] Install Thunderbird - [Click Here]()
+- [X] Install Thunderbird - [Click Here](https://github.com/Diogo-Rego/EuroSkills.2023.V2/tree/main/Module-A/Corporate%20HQ/hq-clt01#install-thunderbird)
 
 ## General Configuration
 
