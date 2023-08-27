@@ -16,8 +16,25 @@
   - [X] Install SSH server and allow root password access - [Click Here]()
 - [X] Preinstalled Resources - [Click Here]()
   - [X] Install the test tools - [Click Here]()
+- [ ] Configure software-based RAID 5 or RAID 10 - [Click Here]()
+  - [ ] Install mdadm - [Click Here]()
+    - [ ] Create the RAID - [Click Here]()
+    - [ ] Create a filesystem on the array - [Click Here]()
+- [ ] Deploy a profile directory of the corporate users - [Click Here]()
+  - [ ] Install SAMBA - [Click Here]()
+    - [ ] Configure CIFS service - [Click Here]()
+        - [ ] Create user profiles on the file system - [Click Here]()
+- [ ] Create a failover DHCP cluster - [Click Here]()
+  - [ ] Install DHCP Server - [Click Here]()
+    - [ ] Configure Secondary DHCP Server - [Click Here]()
+    - [ ] Add the zones for the Dynameic DNS - [Click Here]()
+- [ ] Create monitoring service with Cacti - [Click Here]()
+  - [ ] Install Cacti - [Click Here]()
+    - [ ] Configure syslog server - [Click Here]()
+      - [ ] related to DHCP should be written to ... - [Click Here]()
+      - [ ] related to e-mail should be written to ... - [Click Here]()
+      - [ ] other incoming logs should be written to ... - [Click Here]()
 
-  
 ## General Configuration
 
 <p align="center">
