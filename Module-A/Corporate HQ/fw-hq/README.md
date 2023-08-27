@@ -32,7 +32,7 @@
 - [ ] Install VPN server - [Click Here]()
   - [ ] Install OpenVPN - [Click Here]()
     - [ ] Create secure channel - [Click Here]()
-      - [ ] Configure the Site-to-Site VPN - [Click Here]()
+      - [ ] Configure the Site-to-Site VPN (Server) - [Click Here]()
       - [ ] Configure the Remote Access VPN - [Click Here]()
 
 ## General Configuration
