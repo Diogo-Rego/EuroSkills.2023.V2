@@ -16,8 +16,14 @@
   - [X] Install SSH server and allow root password access - [Click Here]()
 - [X] Preinstalled Resources - [Click Here]()
   - [X] Install the test tools - [Click Here]()
+- [ ] Deploy a directory service - [Click Here]()
+  - [ ] Install LDAP - [Click Here]()
+    - [ ] Create all objects listed in Appendix B - [Click Here]()
+- [ ] Create a failover DHCP cluster - [Click Here]()
+  - [ ] Install DHCP Server - [Click Here]()
+    - [ ] Configure Primary DHCP Server - [Click Here]()
+    - [ ] Add the zones for the Dynameic DNS - [Click Here]()
 
-  
 ## General Configuration
 
 <p align="center">
