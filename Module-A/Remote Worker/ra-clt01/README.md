@@ -16,7 +16,15 @@
   - [X] Install SSH server and allow root password access - [Click Here]()
 - [X] Preinstalled Resources - [Click Here]()
   - [X] Install the test tools - [Click Here]()
-
+- [ ] Install a graphic environment - [Click Here]()
+  - [ ] Install tasksel - [Click Here]()
+  - [ ] Install xrdp - [Click Here]()
+- [ ] Install LDAP - [Click Here]()
+  - [ ] Configure LDAP authentication - [Click Here]()
+- [ ] Install VPN server - [Click Here]()
+  - [ ] Install OpenVPN - [Click Here]()
+    - [ ] Add secure channel - [Click Here]()
+      - [ ] Configure the Remote Access VPN - [Click Here]()
   
 ## General Configuration
 
