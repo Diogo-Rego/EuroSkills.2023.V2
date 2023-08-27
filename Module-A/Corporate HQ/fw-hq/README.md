@@ -6,7 +6,6 @@
   <h1 align="center">FW-HQ</h1>
 </p>
 
-
 ## Setup Guide
 
 - [X] General Configuration - [Click Here]()
