@@ -1,7 +1,7 @@
 #
 <p align="center">
   <a href="">
-    <img src="../../../img/Module-A/Software Defined Data Center/fw-sddc/" alt="FW-HQ" width="160" height="160">
+    <img src="../../../img/Module-A/Software Defined Data Center/fw-sddc/nftables-server.png" alt="FW-HQ" width="260" height="160">
   </a>
   <h1 align="center">FW-SSDC</h1>
 </p>

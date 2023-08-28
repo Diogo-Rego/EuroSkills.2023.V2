@@ -1,7 +1,7 @@
 #
 <p align="center">
   <a href="">
-    <img src="../../../img/Module-A/Corporate HQ/fw-hq/" alt="FW-HQ" width="160" height="160">
+    <img src="../../../img/Module-A/Corporate HQ/fw-hq/iptables-firewall.png" alt="FW-HQ" width="160" height="160">
   </a>
   <h1 align="center">FW-HQ</h1>
 </p>
@@ -29,6 +29,9 @@
       - [ ] Incoming packets should be dropped by default - [Click Here]()
       - [ ] Allow minimal traffic for the services to work - [Click Here]()
       - [ ] Make sure, that iptables persist across reboots - [Click Here]()
+- [ ] Install DHCP Relay - [Click Here]()
+  - [ ] Install isc-dhcp-relay - [Click Here]()
+    - [ ] Configure DHCP Relay - [Click Here]()
 - [ ] Install VPN server - [Click Here]()
   - [ ] Install OpenVPN - [Click Here]()
     - [ ] Create secure channel - [Click Here]()

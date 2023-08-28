@@ -1,7 +1,7 @@
 #
 <p align="center">
   <a href="">
-    <img src="../../../img/Module-A/Remote Worker/ra-clt01/" alt="FW-HQ" width="160" height="160">
+    <img src="../../../img/Module-A/Remote Worker/ra-clt01/remote-client.png" alt="FW-HQ" width="160" height="160">
   </a>
   <h1 align="center">RA-CLT01</h1>
 </p>

@@ -1,7 +1,7 @@
 #
 <p align="center">
   <a href="">
-    <img src="../../../img/Module-A/Corporate HQ/hq-intra/" alt="FW-HQ" width="160" height="160">
+    <img src="../../../img/Module-A/Corporate HQ/hq-intra/ldap-server.png" alt="FW-HQ" width="160" height="160">
   </a>
   <h1 align="center">HQ-INTRA</h1>
 </p>
@@ -19,10 +19,10 @@
 - [ ] Deploy a directory service - [Click Here]()
   - [ ] Install LDAP - [Click Here]()
     - [ ] Create all objects listed in Appendix B - [Click Here]()
-- [ ] Create a failover DHCP cluster - [Click Here]()
-  - [ ] Install DHCP Server - [Click Here]()
-    - [ ] Configure Primary DHCP Server - [Click Here]()
-    - [ ] Add the zones for the Dynameic DNS - [Click Here]()
+- [X] Create a failover DHCP cluster - [Click Here]()
+  - [X] Install DHCP Server - [Click Here]()
+    - [X] Configure Primary DHCP Server - [Click Here]()
+    - [X] Add the zones for the Dynameic DNS - [Click Here]()
 
 ## General Configuration
 
@@ -259,3 +259,182 @@ sudo service sshd restart
 ````
 sudo apt install -y smbclient curl lynx dnsutils ldap-utils ftp lftp wget ssh nfs-common rsync telnet traceroute tcptraceroute tcpdump net-tools cifs-utils
 ````
+
+## Create a failover DHCP cluster
+
+<p align="center">
+  <a href="">
+    <img src="../../../img/Module-A/Corporate HQ/hq-intra/dhcp.png" alt="Failover DHCP cluster" width="160" height="160">
+  </a>
+  <h1 align="center">Failover DHCP cluster</h1>
+</p>
+
+### Step 1: Install the DHCP Server
+
+```
+sudo apt update
+sudo apt install isc-dhcp-server
+```
+
+### Step 2: Configure the DHCP Server
+
+- Open the DHCP server configuration file using a text editor:
+
+```
+sudo nano /etc/dhcp/dhcpd.conf
+```
+
+- Modify the configuration file according to your network settings. Here's an example configuration:
+
+```
+# Set the domain name
+option domain-name "yourdomain.com";
+# Set the DNS servers
+option domain-name-servers 8.8.8.8, 8.8.4.4;
+
+# Set the default lease time
+default-lease-time 600;
+# Set the maximum lease time
+max-lease-time 7200;
+
+# Configure the DHCP subnet
+subnet 192.168.1.0 netmask 255.255.255.0 {
+    range 192.168.1.100 192.168.1.200;  # Define the IP range for dynamic assignment
+    option routers 192.168.1.1;  # Set the default gateway
+}
+```
+
+- Customize the configuration according to your network requirements, including the domain name, DNS servers, lease times, subnet, IP range, and gateway.
+
+- Save the file and exit the text editor.
+
+### Step 3: Configure Primary DHCP Server
+
+After generating a key copy and paste the key on ``dhchp.conf`` and ``named.conf.local``.
+
+- Example of the key generated:
+
+```
+key "ddns-key" {
+  algorithm hmac-sha256;
+  secret "zDQMycm2qO5ERDdGvhMWtjAWAPd6ZxCG0LE1YOsESW+ZRj9pjR+n2hZ/bqYe2dGh8XdQ+TrMKcKfb18JGOHD2g==";
+}
+```
+
+- Edit the DHCP server configuration file on the primary node:
+
+```
+sudo nano /etc/dhcp/dhcpd.conf
+```
+
+- Add the following to the dhcpd.conf to allow failover with dynamic dns:
+
+```
+omapi-port 7911;
+omapi-key ddns-key;
+```
+
+- Change from auto to standard to auto update dns:
+
+```
+ddns-update-style standard;
+```
+
+- If you have a static dhcp host configurd add the following to allow the server to give the static ip configute below:
+
+```
+update-static-leases on;
+```
+
+- Configure the DHCP server options and define the DHCP subnet as per your network requirements.
+
+- Add the following lines at the end of the configuration file to enable failover:
+
+```
+failover peer "dhcp-failover" {
+    primary;  # Set as primary on this node
+    address <Primary-IP>;  # Replace with the IP address of this node
+    port 647;  # Use a unique port for failover communication
+    peer address <Secondary-IP>;  # Replace with the IP address of the secondary node
+    peer port 647;  # Use the same port as configured on the secondary node
+    max-response-delay 30;  # Maximum delay in seconds for receiving an acknowledgment from the peer
+    max-unacked-updates 10;  # Maximum number of unacknowledged updates
+    load balance max seconds 3;  # Maximum load balance interval
+    mclt 1800;  # Maximum client lead time
+    split 128;  # Percentage split for load balancing
+}
+```
+
+- Then add the zones for the Dynameic DNS:
+
+Key provaided from the ``dhcpd.conf`` documentation for the DDNS:
+
+```
+key DHCP_UPDATER {
+    algorithm HMAC-MD5.SIG-ALG.REG.INT;
+    secret pRP5FapFoJ95JEL06sv4PQ==;
+}
+```
+
+- Forwarding Zone
+
+```
+zone fimatpolska.pl. {
+    primary 192.168.10.254;  #DNS server 
+    key DHCP_UPDATER;            
+}
+```
+
+- Reverse Zone
+
+```
+zone 0.168.192.in-addr.arpa. {
+primary 192.168.10.254;
+key DHCP_UPDATER;
+}
+
+zone 15.168.192.in-addr.arpa. {
+primary 192.168.10.254;
+key DHCP_UPDATER;
+}
+
+zone 0.16.172.in-addr.arpa. {
+primary 192.168.10.254;
+key DHCP_UPDATER;
+}
+```
+
+- Save the file and exit the text editor.
+
+### Step 4: Configure DHCP Reservation
+
+- Open the DHCP server configuration file using a text editor:
+
+```
+sudo nano /etc/dhcp/dhcpd.conf
+```
+
+- Add a DHCP reservation entry for the device at the end of the configuration file. Replace the MAC address (``XX:XX:XX:XX:XX:XX``) and IP address (``192.168.1.10``) with the appropriate values:
+
+```
+host mydevice {
+    hardware ethernet XX:XX:XX:XX:XX:XX;
+    fixed-address 192.168.1.10;
+}
+```
+
+- Save the file and exit the text editor.
+
+### Step 5: Restart the DHCP Server
+
+```
+sudo systemctl restart isc-dhcp-server
+```
+
+### Step 6: Verify DHCP Server Operation
+
+```
+sudo journalctl -u isc-dhcp-server
+```
+
+- Verify that the DHCP server is providing IP addresses to clients by testing on a client device connected to the network.
