@@ -562,3 +562,19 @@ sudo journalctl -u isc-dhcp-server
 ```
 
 - Verify that the DHCP server is providing IP addresses to clients by testing on a client device connected to the network.
+
+### Cacti
+sudo apt install cacti
+
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+
+sudo nano /etc/php/7.0/apache2/php.ini
+
+sudo mysql -e "SET GLOBAL time_zone = ‘-6:00’;"
+
+sudo dpkg-reconfigure cacti
+
+```
+admin
+admin
+```

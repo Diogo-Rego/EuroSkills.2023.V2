@@ -682,3 +682,39 @@ verb 3
 - Import or paste the contents of the ``client.ovpn`` configuration into the client software.
 
 - Connect to the OpenVPN server.
+
+
+### NAT and Firewall
+
+iptables -t nat -F
+iptables -F
+
+apt install iptables netfilter-persistent iptables-persistent
+iptables -t nat -A POSTROUTING -o ens192 -j MASQUERADE
+iptables -t nat -A PREROUTING -i ens192 -p tcp --dport 3389 -j DNAT --to-destination 192.168.31.2
+iptables -t nat -A PREROUTING -i ens192 -p tcp --dport 2222 -j DNAT --to-destination 172.31.0.2:22
+iptables -t nat -A PREROUTING -i ens192 -p tcp -m multiport --dports 80,443 -j DNAT --to-destination 172.31.0.2
+
+Firewall - iptables
+
+#iptables -A INPUT -p tcp -m tcp -m multiport --dports 22,80,443,2222,3389 -j ACCEPT
+iptables -A INPUT -p tcp -m tcp -m multiport --dports 22,80,443,2222,3389 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
+
+netfilter-persistent save
+netfilter-persistent reload
+
+iptables-restore-translate -f /etc/iptables/rules.v4 > /etc/nftables.conf
+
+iptables -L -nv
+
+### LOGS
+tail -f /var/log/syslog
+
+### nstables
+systemctl disable iptables
+systemctl stop iptables
+
+systemctl enable nftables
+systemctl start nftables
+
+nft list ruleset > /etc/nftables.conf
