@@ -1,0 +1,46 @@
+hostname ACC2
+no ip domain lookup
+ip domain name branch.pl
+
+clock timezone MSK 3 0
+
+ip dhcp snooping
+ip dhcp snooping vlan 12
+
+spanning-tree mode mst
+spanning-tree portfast edge default
+spanning-tree portfast edge bpduguard default
+
+spanning-tree mst configuration
+ instance 1 vlan 11-12
+
+interface GigabitEthernet1/1
+ switchport trunk allowed vlan 1-665,667-4094
+ switchport trunk native vlan 666
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ ip dhcp snooping trust
+
+interface GigabitEthernet1/3
+ switchport trunk allowed vlan 1-665,667-4094
+ switchport trunk native vlan 666
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ ip dhcp snooping trust
+
+interface GigabitEthernet0/0
+ switchport access vlan 12
+ switchport mode access
+ switchport nonegotiate
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky cc5a.535e.3caf
+ switchport port-security
+ ip dhcp snooping trust
+
+ntp authentication-key 1 md5 Passw0rd!
+ntp authenticate
+ntp trusted-key 1
+ntp server 10.99.99.99 key 1

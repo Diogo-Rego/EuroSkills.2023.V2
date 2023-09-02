@@ -1,0 +1,112 @@
+hostname WARSAW
+no ip domain lookup
+ip domain name ict.pl
+
+interface GigabitEthernet1
+ ip address 132.87.2.1 255.255.255.0
+ ip nat outside
+
+interface GigabitEthernet2
+ ip address 172.20.4.2 255.255.255.252
+ ip nat inside
+ ip authentication key-chain eigrp 100 EIGRP
+
+interface GigabitEthernet3
+ ip address 10.0.10.1 255.255.255.252
+ ip nat inside
+ ip authentication key-chain eigrp 100 EIGRP
+
+interface GigabitEthernet4
+ ip address 10.0.20.1 255.255.255.252
+ ip nat inside
+ ip authentication key-chain eigrp 100 EIGRP
+
+key chain EIGRP
+ key 0
+  key-string cisco 
+
+router eigrp 100
+ network 10.0.10.0 0.0.0.3
+ network 10.0.20.0 0.0.0.3
+ network 10.99.0.0 0.0.0.255
+ network 10.99.1.0 0.0.0.255
+ network 172.20.4.0 0.0.0.3
+ no passive-interface GigabitEthernet2
+ no passive-interface GigabitEthernet3
+ no passive-interface GigabitEthernet4
+ no passive-interface Tunnel1
+ no passive-interface Tunnel2
+
+ip access-list standard NAT
+ permit 172.0.0.0 0.255.255.255
+ permit 10.0.0.0 0.255.255.255
+ permit 192.168.0.0 0.0.255.255
+ deny   any
+
+ip nat inside source list NAT interface GigabitEthernet1 overload
+ip route 0.0.0.0 0.0.0.0 132.87.2.254
+
+router bgp 65001
+ bgp log-neighbor-changes
+ neighbor 132.87.2.254 remote-as 65000
+ address-family ipv4
+  network 132.87.2.0 mask 255.255.255.0
+  neighbor 132.87.2.254 activate
+ exit-address-family
+
+--------------------------------------------
+
+interface Tunnel1
+ ip address 10.99.0.11 255.255.255.0
+ no ip redirects
+ ip pim sparse-mode
+ ip nat inside
+ ip authentication key-chain eigrp 100 EIGRP
+ ip nhrp authentication cisco
+ ip nhrp map multicast 18.31.192.1
+ ip nhrp network-id 100
+ ip nhrp nhs 10.99.0.1 nbma 18.31.192.1
+ tunnel source GigabitEthernet1
+ tunnel mode gre multipoint
+
+interface Tunnel2
+ ip address 10.99.1.11 255.255.255.0
+ no ip redirects
+ ip pim sparse-mode
+ ip nat inside
+ ip authentication key-chain eigrp 100 EIGRP
+ ip nhrp authentication cisco
+ ip nhrp map multicast 18.31.192.2
+ ip nhrp network-id 101
+ ip nhrp nhs 10.99.1.1 nbma 18.31.192.2
+ tunnel source GigabitEthernet1
+ tunnel mode gre multipoint
+ 
+--------------------------------------------
+
+ip dhcp excluded-address 172.20.3.0 172.20.3.100
+ip dhcp excluded-address 172.20.3.200 172.20.3.254
+ip dhcp excluded-address 172.16.10.0 172.16.10.100
+ip dhcp excluded-address 172.16.10.200 172.16.10.254
+ip dhcp excluded-address 172.16.20.0 172.16.20.100
+ip dhcp excluded-address 172.16.20.200 172.16.20.254
+
+ip dhcp pool VLAN12
+ network 172.20.3.0 255.255.255.0
+ default-router 172.20.3.252 
+ dns-server 87.250.250.100
+ option 150 ip 172.20.4.2
+
+ip dhcp pool WK
+ network 172.16.10.0 255.255.255.0
+ default-router 172.16.10.254 
+ dns-server 87.250.250.100
+ option 150 ip 172.16.10.254 
+
+ip dhcp pool WG
+ network 172.16.20.0 255.255.255.0
+ default-router 172.16.20.254 
+ dns-server 87.250.250.100
+ option 150 ip 172.16.20.254 
+
+

@@ -1,0 +1,60 @@
+hostname HQFW
+dns server-group DefaultDNS
+ domain-name branch.pl
+
+interface GigabitEthernet0/0
+ nameif edge
+ security-level 0
+ ip address 172.20.4.1 255.255.255.252 
+ no shutdown
+
+interface GigabitEthernet0/1
+ nameif core_1
+ security-level 100
+ ip address 172.20.1.2 255.255.255.252
+ no shutdown
+
+interface GigabitEthernet0/2
+ nameif core_2
+ security-level 100
+ ip address 172.20.2.2 255.255.255.252
+ no shutdown
+
+policy-map global_policy
+ class inspection_default
+  inspect h323 h225 
+  inspect h323 ras 
+  inspect tftp 
+  inspect sip  
+  inspect dns preset_dns_map 
+
+key chain EIGRP
+ key 0        
+  key-string Passw0rd!
+
+router eigrp 100
+ network 172.20.1.0 255.255.255.252
+ network 172.20.2.0 255.255.255.252
+ network 172.20.4.0 255.255.255.252
+
+dhcprelay server 172.20.4.2 edge
+dhcprelay enable core_1
+dhcprelay enable core_2
+dhcprelay setroute core_1
+dhcprelay setroute edge
+dhcprelay timeout 60
+
+ntp authentication-key 1 md5 Passw0rd!
+ntp authenticate
+ntp trusted-key 1
+ntp server 10.99.99.99 key 1
+
+access-group PERMITIR out int core_1
+access-group PERMITIR out int core_2
+access-group PERMITIR in int core_2
+access-group PERMITIR in int core_1
+
+----------
+aaa authentication ssh console LOCAL 
+aaa authorization exec LOCAL auto-enable
+aaa authentication login-history

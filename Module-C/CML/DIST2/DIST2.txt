@@ -1,0 +1,84 @@
+hostname DIST2
+no ip domain lookup
+ip domain name branch.pl
+
+clock timezone MSK 3 0
+
+ip routing
+
+vlan 12
+ name vlan12
+
+interface Vlan12
+ ip address 172.20.3.253 255.255.255.0
+ ip helper-address 172.20.4.2 
+ standby use-bia
+ standby version 2
+ standby 1 ip 172.20.3.254
+ standby 1 preempt
+ standby 1 authentication md5 key-string Passw0rd!
+ standby 1 name DIST
+
+interface Port-channel1
+ no switchport
+ ip address 172.20.99.2 255.255.255.252
+ ip authentication key-chain eigrp 100 EIGRP
+
+interface GigabitEthernet1/2
+ no switchport
+ ip address 172.20.2.1 255.255.255.252
+ ip authentication key-chain eigrp 100 EIGRP
+
+interface GigabitEthernet1/1
+ switchport trunk allowed vlan 1-665,667-4094
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 666
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree guard root
+
+interface GigabitEthernet1/3
+ switchport trunk allowed vlan 1-665,667-4094
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 666
+ switchport mode trunk
+ switchport nonegotiate
+ spanning-tree guard root
+
+interface GigabitEthernet2/3
+ no switchport
+ no ip address
+ channel-group 1 mode active
+
+interface GigabitEthernet3/0
+ no switchport
+ no ip address
+ channel-group 1 mode active
+
+spanning-tree mode mst
+spanning-tree mst configuration
+ instance 1 vlan 11-12
+
+key chain EIGRP
+ key 0
+  key-string Passw0rd! 
+
+router eigrp 100
+ network 172.20.1.0 0.0.0.3
+ network 172.20.3.0 0.0.0.255
+ network 172.20.99.0 0.0.0.3
+ passive-interface default
+ no passive-interface Port-channel1
+ no passive-interface GigabitEthernet1/2
+
+----------
+aaa new-model
+
+aaa authentication login default local
+aaa authentication login CONSOLE none
+aaa authorization exec default local if-authenticated 
+aaa authorization exec CONSOLE none 
+
+archive
+ path tftp://172.16.40.3/$h
+ write-memory
