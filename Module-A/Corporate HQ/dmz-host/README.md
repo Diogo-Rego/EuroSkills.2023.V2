@@ -801,3 +801,92 @@ sudo systemctl restart dovecot
 ```
 
 That's a basic outline of setting up an email server in Debian using Postfix and Dovecot. Configuring and securing an email server requires additional considerations, such as setting up spam filters, enabling SSL/TLS, configuring DNS records, and implementing security best practices. It's recommended to consult detailed documentation or seek professional assistance when setting up an email server for production use.
+
+
+
+
+apt -y install postfix postfix-doc dovecot-imapd dovecot-pop3d libsasl2-dev sasl2-bin
+2
+enta.pt
+
+dpkg-reconfigure postfix
+2
+enta.pt
+ubuntu
+nao modificar
+nao
+apagar tudo
+0
++
+ipv
+
+nano /etc/postfix/main.cf
+#mudar
+smtpd_tls_cert_file=/etc/ssl/certs/enta.pt.crt
+smtpd_tls_key_file=/etc/ssl/private/enta.pt.key
+nano /etc/postfix/master.cf
+#uncomment 1º grupo
+submission inet n       -       y       -       -       smtpd
+-o syslog_name=postfix/submission
+-o smtpd_tls_security_level=encrypt
+-o smtpd_sasl_auth_enable=yes
+#adicionar em baixo do -o smtpd_sasl
+-o smtpd_client_restrictions=permit_sasl_authenticated,reject
+
+#uncomment 2º grupo
+smtps     inet  n       -       y       -       -       smtpd
+-o syslog_name=postfix/smtps
+-o smtpd_tls_wrappermode=yes
+-o smtpd_sasl_auth_enable=yes
+-o smtpd_client_restrictions=permit_sasl_authenticated,reject
+
+nano /etc/postfix/sasl/smtpd.conf
+#add
+pwcheck_method: saslauthd
+mech_list: PLAIN LOGIN
+
+nano /etc/default/saslauthd
+#modificar:
+START=yes
+OPTIONS="-c -m /var/spool/postfix/var/run/saslauthd"
+
+postconf -e 'home_mailbox = Maildir/'
+
+nano /etc/dovecot/conf.d/10-auth.conf
+#uncomment e mudar
+disable_plaintext_auth = no
+
+nano /etc/dovecot/conf.d/10-mail.conf
+#uncomment
+mail_location = maildir:~/Maildir
+#comment
+#mail_location = mbox:~/mail:INBOX=/var/mail/%u
+nano /etc/dovecot/conf.d/10-ssl.conf
+ssl = yes
+#uncomment e modificar
+ssl_cert = </etc/ssl/certs/enta.pt.crt
+ssl_key = </etc/ssl/private/enta.pt.key
+
+#Quando um utilizador é criado, é criando automaticamente a pasta maildir
+cd /etc/skel/
+maildirmake.dovecot Maildir
+
+#quando o utilizador já esta criado
+login com o utilizador
+maildirmake.dovecot Maildir
+
+adduser postfix sasl
+adduser dovecot sasl
+
+systemctl restart saslauthd.service postfix dovecot
+
+#confirmar
+ss -tulp | grep master
+25
+465
+587
+ss -tulp | grep dovecot
+110
+143
+993
+995
