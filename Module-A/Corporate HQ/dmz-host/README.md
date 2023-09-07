@@ -890,3 +890,8 @@ ss -tulp | grep dovecot
 143
 993
 995
+
+
+https://docs.google.com/document/d/1ZFT09S32uPuuV5Lsv1_PS1nzx78-QNk8zA1HRHUko6U/edit?usp=sharing
+
+https://docs.google.com/document/d/12wFxQNpWc8e41Tts46LOVkGV8sc1aCl9zl-TXYqUSeY/edit?usp=sharing
